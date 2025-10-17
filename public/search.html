@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>搜索活动 - 教育公益</title>
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+  <header class="header">
+    <h1>搜索活动</h1>
+    <nav class="nav"><a href="index.html">首页</a><a href="search.html">搜索活动</a></nav>
+  </header>
+  <main class="container">
+    <div class="search-bar" style="margin-bottom:18px">
+      <input type="date" id="date">
+      <input type="text" id="location" placeholder="输入地点（如：成都市）">
+      <select id="category"></select>
+      <button id="searchBtn">搜索</button>
+      <button id="clearBtn" style="background:#ddd;color:#333">清除</button>
+    </div>
+    <section>
+      <div id="results" class="grid"></div>
+    </section>
+  </main>
+  <footer class="footer">教育公益慈善组织 © 2025</footer>
+<script src="js/search.js"></script>
+</body></html>
