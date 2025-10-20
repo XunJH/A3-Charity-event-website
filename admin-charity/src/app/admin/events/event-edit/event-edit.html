@@ -1,0 +1,86 @@
+<!-- event-edit.component.html -->
+<div class="container">
+  <div class="page-title">
+    <h2>添加新活动</h2>
+    <button class="btn btn-outline" (click)="goBack()">返回</button>
+  </div>
+
+  <div class="card">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">活动标题 <span style="color: red;">*</span></label>
+          <input 
+            type="text" 
+            class="form-control" 
+            [(ngModel)]="event.title" 
+            name="title" 
+            required
+          >
+        </div>
+        <div class="form-group">
+          <label class="form-label">活动日期 <span style="color: red;">*</span></label>
+          <input 
+            type="date" 
+            class="form-control" 
+            [(ngModel)]="event.event_date" 
+            name="event_date" 
+            required
+          >
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">活动地点 <span style="color: red;">*</span></label>
+          <input 
+            type="text" 
+            class="form-control" 
+            [(ngModel)]="event.location" 
+            name="location" 
+            required
+          >
+        </div>
+        <div class="form-group">
+          <label class="form-label">活动分类 <span style="color: red;">*</span></label>
+          <select 
+            class="form-control" 
+            [(ngModel)]="event.category_id" 
+            name="category_id" 
+            required
+          >
+            <option value="">选择分类</option>
+            <option value="1">公益环保</option>
+            <option value="2">教育支持</option>
+            <option value="3">扶贫济困</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">活动描述</label>
+        <textarea 
+          class="form-control" 
+          [(ngModel)]="event.description" 
+          name="description" 
+          rows="4"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">主办方</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          [(ngModel)]="event.organizer" 
+          name="organizer"
+        >
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">保存活动</button>
+        <button type="button" class="btn btn-outline" (click)="goBack()">取消</button>
+      </div>
+    </form>
+  </div>
+</div>

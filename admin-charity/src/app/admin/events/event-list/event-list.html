@@ -1,0 +1,55 @@
+<!-- 管理页头部 -->
+<header class="admin-header">
+  <h1>活动管理系统</h1>
+  <nav class="admin-nav">
+    <a href="/admin/events" class="active">活动列表</a>
+    <a href="/admin/registrations">报名管理</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="page-title">
+    <h2>活动列表</h2>
+    <!-- 添加活动按钮：绑定 goToAddEvent 方法 -->
+    <button class="btn btn-primary" (click)="goToAddEvent()">+ 添加活动</button>
+  </div>
+
+  <div class="filter-bar">
+    <input type="text" class="form-control" placeholder="搜索活动...">
+    <select class="form-control">
+      <option>所有分类</option>
+      <option>公益环保</option>
+    </select>
+    <!-- 筛选按钮：绑定 filterEvents 方法 -->
+    <button class="btn btn-outline" (click)="filterEvents()">筛选</button>
+  </div>
+
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>活动名称</th>
+            <th>日期</th>
+            <th>地点</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 假设活动数据从组件中获取，这里用 *ngFor 循环 -->
+          <tr *ngFor="let event of events">
+            <td>{{ event.title }}</td>
+            <td>{{ event.event_date | date }}</td>
+            <td>{{ event.location }}</td>
+            <td class="table-actions">
+              <!-- 编辑按钮：传递活动ID给 editEvent 方法 -->
+              <button class="btn btn-outline" (click)="editEvent(event.id)">编辑</button>
+              <!-- 删除按钮：传递活动ID给 deleteEvent 方法 -->
+              <button class="btn btn-danger" (click)="deleteEvent(event.id)">删除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
